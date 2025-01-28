@@ -41,7 +41,7 @@ namespace CactusPie.FastHealing
 #if DEBUG
             Logger.LogInfo("Entered PatchPrefix"); 
 #endif
-            if (!(item is MedsClass medsItem))
+            if (!(item is MedicalItemClass medsItem))
             {
 #if DEBUG
                 Logger.LogInfo("PatchPrefix: Item is not medsclass item, returning");
@@ -54,13 +54,13 @@ namespace CactusPie.FastHealing
             switch (item)
             {
                 
-                case GClass2741 _: //Look for TryGetBodyPartToApply to update in the future
+                case MedKitItemClass _: //Look for TryGetBodyPartToApply to update in the future
 #if DEBUG
                     Logger.LogInfo("PatchPrefix: Switch statement on item entered - GClass2726 - MedKitStartDelay");
 #endif                    
                     delay = Singleton<BackendConfigSettingsClass>.Instance.Health.Effects.MedEffect.MedKitStartDelay;
                     break;
-                case GClass2744 _: //Look for TryGetBodyPartToApply to update in the future
+                case MedicalItemClass _: //Look for TryGetBodyPartToApply to update in the future
 #if DEBUG 
                     Logger.LogInfo("PatchPrefix: Switch statement on item entered - GClass2729 - MedicalStartDelay");
 #endif
@@ -276,7 +276,7 @@ namespace CactusPie.FastHealing
             return delay;
         }
 
-        public static MedsItemType GetItemType(MedsClass medsItem)
+        public static MedsItemType GetItemType(MedicalItemClass medsItem)
         {
             const string surv12Id = "survival_first_aid_rollup_kit";
             const string cmsId = "core_medical_surgical_kit";
